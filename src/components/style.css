@@ -40,10 +40,13 @@ input {
   border: 1px solid black;
   padding-top: 5%;
   padding-right: 3%;
+  background: rgb(192, 187, 187);
+  color: #fff;
+  text-align: end;
 }
 
 .operator {
-  background-color: #b9f3e4;
+  background-color: orange;
 }
 
 h1 {
