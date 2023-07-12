@@ -1,36 +1,39 @@
 import React from 'react';
 import './style.css';
-import './AppTitle';
+import AppTitle from './AppTitle';
 
 function Calculator() {
   return (
-    <div className="calculator">
-      <div className="display">
-        <input type="number" placeholder="0" />
+    <div>
+      <AppTitle />
+      <div className="calculator">
+        <div className="display">
+          <input type="number" placeholder="0" />
+        </div>
+        <CalcBtn value="A/C" />
+        <CalcBtn value="+/-" />
+        <CalcBtn value="%" />
+        <CalcBtn className="operator" value="/" />
+
+        <CalcBtn value="7" />
+        <CalcBtn value="8" />
+        <CalcBtn value="9" />
+        <CalcBtn className="operator" value="*" />
+
+        <CalcBtn value="4" />
+        <CalcBtn value="5" />
+        <CalcBtn value="6" />
+        <CalcBtn className="operator" value="-" />
+
+        <CalcBtn value="1" />
+        <CalcBtn value="2" />
+        <CalcBtn value="3" />
+        <CalcBtn className="operator" value="+" />
+
+        <CalcBtn className="spanbtn" value="0" />
+        <CalcBtn value="." />
+        <CalcBtn className="operator" value="=" />
       </div>
-      <CalcBtn value="A/C" />
-      <CalcBtn value="+/-" />
-      <CalcBtn value="%" />
-      <CalcBtn className="operator" value="/" />
-
-      <CalcBtn value="7" />
-      <CalcBtn value="8" />
-      <CalcBtn value="9" />
-      <CalcBtn className="operator" value="*" />
-
-      <CalcBtn value="4" />
-      <CalcBtn value="5" />
-      <CalcBtn value="6" />
-      <CalcBtn className="operator" value="-" />
-
-      <CalcBtn value="1" />
-      <CalcBtn value="2" />
-      <CalcBtn value="3" />
-      <CalcBtn className="operator" value="+" />
-
-      <CalcBtn className="spanbtn" value="0" />
-      <CalcBtn value="." />
-      <CalcBtn className="operator" value="=" />
     </div>
   );
 }
