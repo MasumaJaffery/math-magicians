@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 50vw;
+  height: 50vh;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  height: 7vh;
+  border: 1px solid #5c5c5c;
+  background-color: #e7e5e5;
+}
+
+.spanbtn {
+  grid-column: span 2;
+}
+
+.display {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+input {
+  height: 8vh;
+  font-size: 1.6rem;
+  border: 1px solid black;
+  padding-top: 5%;
+  padding-right: 3%;
+}
+
+.operator {
+  background-color: #b9f3e4;
+}
