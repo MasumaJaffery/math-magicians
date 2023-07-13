@@ -1,64 +1,50 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './style.css';
-import AppTitle from './AppTitle';
+import CalculatorTitle from './AppTitle';
+import calculate from '../logic/calculate';
 
-function Calculator() {
+function App() {
   const [display, setdisplay] = useState({
-    current: '0',
-    total: '0',
-    isintial: true,
+    total: null,
+    next: null,
+    operation: null,
   });
-  function handleNumber(value) {
-    let NewValue = value;
-    if (!display.isintial) {
-      NewValue = display.current + value;
-    }
-    setdisplay({ current: NewValue, total: display.total, isintial: false });
-  }
-  function handleOperator() {
-  }
-  function render() {
-    return display.current;
-  }
+
+  const handleClick = (buttonName) => {
+    setdisplay((Operand) => calculate(Operand, buttonName));
+  };
+
   return (
     <div>
-      <AppTitle />
+      <CalculatorTitle />
+
       <div className="calculator">
         <div className="display">
-          {render()}
+          <div className="current-operand">{display.next || display.total || '0'}</div>
         </div>
-        <CalcBtn value="A/C" onClick={() => handleOperator('A/C')} />
-        <CalcBtn value="+/-" onClick={() => handleOperator('+/-')} />
-        <CalcBtn value="%" onClick={() => handleOperator('%')} />
-        <CalcBtn className="operator" value="/" onClick={() => handleOperator('/')} />
-
-        <CalcBtn value="7" onClick={() => handleNumber('7')} />
-        <CalcBtn value="8" onClick={() => handleNumber('8')} />
-        <CalcBtn value="9" onClick={() => handleNumber('9')} />
-        <CalcBtn className="operator" value="*" onClick={() => handleOperator('*')} />
-
-        <CalcBtn value="4" onClick={() => handleNumber('4')} />
-        <CalcBtn value="5" onClick={() => handleNumber('5')} />
-        <CalcBtn value="6" onClick={() => handleNumber('6')} />
-        <CalcBtn className="operator" value="-" onClick={() => handleOperator('-')} />
-
-        <CalcBtn value="1" onClick={() => handleNumber('1')} />
-        <CalcBtn value="2" onClick={() => handleNumber('2')} />
-        <CalcBtn value="3" onClick={() => handleNumber('3')} />
-        <CalcBtn className="operator" value="+" onClick={() => handleOperator('+')} />
-
-        <CalcBtn className="spanbtn" value="0" onClick={() => handleNumber('0')} />
-        <CalcBtn value="." onClick={() => handleNumber('.')} />
-        <CalcBtn className="operator" value="=" onClick={() => handleOperator('=')} />
+        <button type="button" onClick={() => handleClick('AC')}>AC</button>
+        <button type="button" onClick={() => handleClick('+/-')}>+/-</button>
+        <button type="button" onClick={() => handleClick('%')}>%</button>
+        <button type="button" className="operator" onClick={() => handleClick('÷')}>÷</button>
+        <button type="button" onClick={() => handleClick('7')}>7</button>
+        <button type="button" onClick={() => handleClick('8')}>8</button>
+        <button type="button" onClick={() => handleClick('9')}>9</button>
+        <button type="button" className="operator" onClick={() => handleClick('x')}>x</button>
+        <button type="button" onClick={() => handleClick('4')}>4</button>
+        <button type="button" onClick={() => handleClick('5')}>5</button>
+        <button type="button" onClick={() => handleClick('6')}>6</button>
+        <button type="button" className="operator" onClick={() => handleClick('-')}>-</button>
+        <button type="button" onClick={() => handleClick('1')}>1</button>
+        <button type="button" onClick={() => handleClick('2')}>2</button>
+        <button type="button" onClick={() => handleClick('3')}>3</button>
+        <button type="button" className="operator" onClick={() => handleClick('+')}>+</button>
+        <button type="button" className="spanbtn" onClick={() => handleClick('0')}>0</button>
+        <button type="button" onClick={() => handleClick('.')}>.</button>
+        <button type="button" className="operator" onClick={() => handleClick('=')}>=</button>
       </div>
+
     </div>
   );
 }
-function CalcBtn(props) {
-  return (
-  /* eslint-disable react/jsx-one-expression-per-line */
-    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
-    <button type="button" className={props.className} onClick={() => props.onClick(props.value)}> {props.value}</button>
-  );
-}
-export default Calculator;
+
+export default App;
