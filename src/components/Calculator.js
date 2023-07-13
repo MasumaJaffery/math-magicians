@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import AppTitle from './AppTitle';
 
 function Calculator() {
+  const [display, setdisplay] = useState({
+    current: '0',
+    total: '0',
+    isintial: true,
+  });
   function handleNumber(value) {
-    // eslint-disable-next-line no-alert
-    alert(`Clicked ${value}`);
+    let NewValue = value;
+    if (!display.isintial) {
+      NewValue = display.current + value;
+    }
+    setdisplay({ current: NewValue, total: display.total, isintial: false });
   }
   function handleOperator() {
-
+  }
+  function render() {
+    return display.current;
   }
   return (
     <div>
       <AppTitle />
       <div className="calculator">
         <div className="display">
-          <input type="number" placeholder="0" />
+          {render()}
         </div>
         <CalcBtn value="A/C" onClick={() => handleOperator('A/C')} />
         <CalcBtn value="+/-" onClick={() => handleOperator('+/-')} />

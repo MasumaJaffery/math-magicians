@@ -32,9 +32,6 @@ button {
   display: grid;
   grid-column-start: 1;
   grid-column-end: 5;
-}
-
-input {
   height: 8vh;
   font-size: 1.6rem;
   border: 1px solid black;
