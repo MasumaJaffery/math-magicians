@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import CalculatorTitle from './AppTitle';
 import calculate from '../logic/calculate';
 
-function Calculator() {
-  const [display, setdisplay] = useState({
+// eslint-disable-next-line react/prop-types
+function Calculator({ initialState }) {
+  const [display, setDisplay] = useState(initialState || {
     total: null,
     next: null,
     operation: null,
   });
 
-  const handleClick = (buttonName) => {
-    setdisplay((Operand) => calculate(Operand, buttonName));
+  const handleClick = (btnName) => {
+    setDisplay((operand) => calculate(operand, btnName));
   };
 
   return (
@@ -20,7 +21,9 @@ function Calculator() {
 
       <div className="calculator">
         <div className="display">
-          <div className="current-operand">{display.next || display.total || '0'}</div>
+          <div className="display-operand">
+            {display.next || display.total || '0'}
+          </div>
         </div>
         <button type="button" onClick={() => handleClick('AC')}>AC</button>
         <button type="button" onClick={() => handleClick('+/-')}>+/-</button>
