@@ -3,7 +3,7 @@ import './style.css';
 import CalculatorTitle from './AppTitle';
 import calculate from '../logic/calculate';
 
-function App() {
+function Calculator() {
   const [display, setdisplay] = useState({
     total: null,
     next: null,
@@ -42,9 +42,8 @@ function App() {
         <button type="button" onClick={() => handleClick('.')}>.</button>
         <button type="button" className="operator" onClick={() => handleClick('=')}>=</button>
       </div>
-
     </div>
   );
 }
 
-export default App;
+export default Calculator;
