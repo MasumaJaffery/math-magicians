@@ -10,7 +10,7 @@ function Quote() {
   useEffect(() => {
     fetch('https://api.api-ninjas.com/v1/quotes?category=faith', {
       headers: {
-        'X-Api-Key': 'ABCDefghI+jKLTaOqgkxvQ==eMp3O3NdPxMEhBQR',
+        'X-Api-Key': 'nrPZ09jTv0QH16XIR6Qrzw==PFOr0Xry4Errfwju',
       },
     })
       .then((response) => {
