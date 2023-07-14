@@ -1,47 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
-import AppTitle from './AppTitle';
+import CalculatorTitle from './AppTitle';
+import calculate from '../logic/calculate';
 
-function Calculator() {
+function Calculator(initialState) {
+  const [display, setDisplay] = useState(initialState || {
+    total: null,
+    next: null,
+    operation: null,
+  });
+
+  const handleClick = (btnName) => {
+    setDisplay((operand) => calculate(operand, btnName));
+  };
+
   return (
     <div>
-      <AppTitle />
+      <CalculatorTitle />
+
       <div className="calculator">
         <div className="display">
-          <input type="number" placeholder="0" />
+          <div className="display-operand">
+            {display.next || display.total || '0'}
+          </div>
         </div>
-        <CalcBtn value="A/C" />
-        <CalcBtn value="+/-" />
-        <CalcBtn value="%" />
-        <CalcBtn className="operator" value="/" />
-
-        <CalcBtn value="7" />
-        <CalcBtn value="8" />
-        <CalcBtn value="9" />
-        <CalcBtn className="operator" value="*" />
-
-        <CalcBtn value="4" />
-        <CalcBtn value="5" />
-        <CalcBtn value="6" />
-        <CalcBtn className="operator" value="-" />
-
-        <CalcBtn value="1" />
-        <CalcBtn value="2" />
-        <CalcBtn value="3" />
-        <CalcBtn className="operator" value="+" />
-
-        <CalcBtn className="spanbtn" value="0" />
-        <CalcBtn value="." />
-        <CalcBtn className="operator" value="=" />
+        <button type="button" onClick={() => handleClick('AC')}>AC</button>
+        <button type="button" onClick={() => handleClick('+/-')}>+/-</button>
+        <button type="button" onClick={() => handleClick('%')}>%</button>
+        <button type="button" className="operator" onClick={() => handleClick('÷')}>÷</button>
+        <button type="button" onClick={() => handleClick('7')}>7</button>
+        <button type="button" onClick={() => handleClick('8')}>8</button>
+        <button type="button" onClick={() => handleClick('9')}>9</button>
+        <button type="button" className="operator" onClick={() => handleClick('x')}>x</button>
+        <button type="button" onClick={() => handleClick('4')}>4</button>
+        <button type="button" onClick={() => handleClick('5')}>5</button>
+        <button type="button" onClick={() => handleClick('6')}>6</button>
+        <button type="button" className="operator" onClick={() => handleClick('-')}>-</button>
+        <button type="button" onClick={() => handleClick('1')}>1</button>
+        <button type="button" onClick={() => handleClick('2')}>2</button>
+        <button type="button" onClick={() => handleClick('3')}>3</button>
+        <button type="button" className="operator" onClick={() => handleClick('+')}>+</button>
+        <button type="button" className="spanbtn" onClick={() => handleClick('0')}>0</button>
+        <button type="button" onClick={() => handleClick('.')}>.</button>
+        <button type="button" className="operator" onClick={() => handleClick('=')}>=</button>
       </div>
     </div>
   );
 }
-function CalcBtn(props) {
-  return (
-  /* eslint-disable react/jsx-one-expression-per-line */
-    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
-    <button type="button" className={props.className}> {props.value}</button>
-  );
-}
+
 export default Calculator;
