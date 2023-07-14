@@ -3,8 +3,7 @@ import './style.css';
 import CalculatorTitle from './AppTitle';
 import calculate from '../logic/calculate';
 
-// eslint-disable-next-line react/prop-types
-function Calculator({ initialState }) {
+function Calculator(initialState) {
   const [display, setDisplay] = useState(initialState || {
     total: null,
     next: null,
