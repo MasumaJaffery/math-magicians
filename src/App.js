@@ -1,3 +1,13 @@
 import Calculator from './components/Calculator';
+import Quote from './components/Quotes';
 
-export default Calculator;
+function App() {
+  return (
+    <div className="container">
+      <Calculator />
+      <Quote />
+    </div>
+  );
+}
+
+export default App;
