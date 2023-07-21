@@ -20,7 +20,7 @@ function Calculator(initialState) {
 
       <div className="calculator">
         <div className="display">
-          <div className="display-operand">
+          <div className="display-operand" data-testid="calculator-display">
             {display.next || display.total || '0'}
           </div>
         </div>
