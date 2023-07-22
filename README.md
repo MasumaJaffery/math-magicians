@@ -145,6 +145,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 **Note**: Please only modify the components files like App.js, testing files like App.test.js and the CSS files. Do not modify configurations files of the project.
 
+## Live Demo:
+Open [https://eclectic-kulfi-5d875a.netlify.app/) to view it in your browser.
 
 ## 👥 Authors <a name="authors"></a>
 
